@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+
+    <title>SFX-Suite-Doc |  </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/SFX-Suite/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/SFX-Suite/images/favicon.ico"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  </head>
+  <body>
+
+   <!-- hexo-inject:begin --><!-- hexo-inject:end --><script>window.__INITIAL_STATE__ = {"page":{"path":"main-win.html","title":""},"data":{"navigation":{"logo":{"text":"SFX-Suite","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"Modules","type":"link","path":"modules.html","children":[{"text":"Main Window","type":"link","path":"main-win.html"},{"text":"Job Window","type":"link","path":"job-win.html"},{"text":"Powder Fit Window","type":"link","path":"powder-win.html"}]},{"text":"Algorithms","type":"label","children":[{"text":"Hit Finding","type":"link","path":"hit-finding-alg.html"},{"text":"Powder Fit","type":"link","path":"powder-fit-alg.html"}]},{"text":"Tutorial","type":"link","path":"tutorial.html"}]}},"config":{"timezone":"CN","root":"/SFX-Suite/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/SFX-Suite/index.html" class="doc-navbar__logo"><img src="/SFX-Suite/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">SFX-Suite</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="Main-Window"><a href="#Main-Window" class="headerlink" title="Main Window"></a>Main Window</h1><p>Main window is the most versatile module. Users can view scientific data in format of npy, npz, h5 (cxi is also hdf5 format, but designed with set of rules), build mask, generate peak powder, make basic calibration and most importantly, tune parameters for hit finding. Even if you are only interested in visulization, you can still try with this module.</p>
+<h2 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h2><p><img src="images/main-win.png" alt="main-win.png"></p>
+<p>Main window consistes of <strong>File List</strong>, <strong>Info Panel</strong>, <strong>Status Panel</strong>, <strong>Viewer Panel</strong>, <strong>Parameter Tuning Panel</strong> and <strong>Image Viewer</strong>. Since main window is based on data visualization, the central part <strong>image viewer</strong> plays the most important role to display image data and flexiable interaction support via mouse(thanks to pyqtgraph).</p>
+<h2 id="Image-Viewer"><a href="#Image-Viewer" class="headerlink" title="Image Viewer"></a>Image Viewer</h2><p>Actually, there are 3 image viewers in main window. Usually users only see one – raw image viewer, which displays the original data of the specified file and dataset. Sometimes people may be interesed in another two viewers: calib/mask viewer (for calibration and mask building) and debug viewer (for debugging). Users can go to <strong>View</strong> tab in menu bar to show or hide these two viewers.</p>
+<p>In any viewer, users can zoom in/out or move image very easily. Besides, features include:</p>
+<ul>
+<li>histogram of image data with movable region defining the dark/light levels.</li>
+<li>tunable color bar and upper/lower limit.</li>
+<li>pixel information displayed in status bar.</li>
+</ul>
+<h2 id="File-List"><a href="#File-List" class="headerlink" title="File List"></a>File List</h2><p>File list stores all the files in current session. To add new file(s) to file list, you can:</p>
+<ul>
+<li>Click File -&gt; Add File…, then select file via file browser.</li>
+<li>Drag and drop files to file list.</li>
+<li>Input pathname pattern in input box under file list.</li>
+</ul>
+<p>Once you have file items in file list, you can right click one or some of them, then you can select action in the pop-up menu.</p>
+<ul>
+<li><strong>select and load dataset</strong>: select any 2d or 3d dataset in this file for visualization.</li>
+<li><strong>set as mask</strong>: set this file as mask (only support npy format).</li>
+<li><strong>multiply masks</strong>: combine multiple mask files (only support npy format).</li>
+<li><strong>calculate mean/sigma</strong>: calculate mean and sigma image from all selected files.</li>
+<li><strong>generate peak powder</strong>: build peak powder from all selected files.</li>
+<li><strong>delete file(s)</strong>: remove selected files.</li>
+</ul>
+<h2 id="Info-Panel"><a href="#Info-Panel" class="headerlink" title="Info Panel"></a>Info Panel</h2><p>Info panel displays information with timestamp while SFX-Suite is running, so users don’t need switch to terminal for debugging.</p>
+<h2 id="Status-Panel"><a href="#Status-Panel" class="headerlink" title="Status Panel"></a>Status Panel</h2><p>Status panel shows basic information of current file, including filepath, dataset, mask file, image shape and number of frames.</p>
+<h2 id="Viewer-Panel"><a href="#Viewer-Panel" class="headerlink" title="Viewer Panel"></a>Viewer Panel</h2><p>Viewer panel gives user some basic control of image viewer to:</p>
+<ul>
+<li>change frame.</li>
+<li>show center or not.</li>
+<li>enable auto range/level/histgram_range or not.</li>
+</ul>
+<h2 id="Parameter-Tuning-Panel"><a href="#Parameter-Tuning-Panel" class="headerlink" title="Parameter Tuning Panel"></a>Parameter Tuning Panel</h2><p>Parameter tuning panel consists of calib/mask and hit finder tabs, giving user quick and real-time response of corresponding task.</p>
+<h3 id="calib-mask-tab"><a href="#calib-mask-tab" class="headerlink" title="calib/mask tab"></a>calib/mask tab</h3><p>To determine the center of images, usually we calculate mean/sigma image or peak powder from multiple data file, which can be done easily via file list. Once the prepration work is done, load the file and edit <strong>radii of rings</strong> (in pixels and separated by commas) to add some rings to match circles in raw image viewer. You can tune the center x/y to fit the experimental data.</p>
+<p><img src="images/calib.png" alt="calibration"></p>
+<p>To make mask, it’ll be helpful to look at the calib/mask viewer. Click View -&gt; Show Calib/Mask View to open second image viewer at right of the raw image viewer. The calib/mask viewer displays binary image where 0 means invalid, and 1 means valid pixel.</p>
+<p>The mask is generated by 3 steps.</p>
+<ul>
+<li>threshold cut-off. Pixel with value higher than threshold in raw image is set to valid pixels.</li>
+<li>morphology operation. Mask of first step will be processed by 3 morphology operations, first erosion, then dilation, and finaly, another erosion.</li>
+<li>eraser mask. User can draw arbitrary mask using eraser mask tool. Check <strong>show</strong> in eraser, a round-shape eraser will be displayed in raw image viewer, you can change the size and location of eraser with mouse. Check <strong>enable</strong>, then move eraser to make eraser mask. Click <strong>reset</strong> button to reset current eraser mask.</li>
+</ul>
+<p>Note: The eraser mask is generated in real-time, you users’d better disable morphology mask while making eraser mask. Make morphology mask and eraser mask one by one, then combine them in file list.</p>
+<h3 id="hit-finder-tab"><a href="#hit-finder-tab" class="headerlink" title="hit finder tab"></a>hit finder tab</h3><p>Hit finder tag provides core function for SFX data preprocessing. Users can tune hit finding parameters and get response in real time.</p>
+<p>Check <strong>hit finding on</strong> to enable real-time hit finding, and check <strong>mask on</strong> to apply mask in hit finding. You can also find more algorithm details <a href="hit-finding-alg.html">here</a>.</p>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/SFX-Suite/script/doc.js"></script>
+
+    
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
