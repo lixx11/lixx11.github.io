@@ -32,7 +32,7 @@
     <div class="dc-card">
       <div id="react-search-results-root"></div>
       <div id="page-content" class="doc-formatting">
-        <h1 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h1><p>Here we provide two tutorials for online analysis at <a href="PAL-tutorial.html">PAL-XFEL</a> and <a href="LCLS-tutorial.html">LCLS</a>. We assume you have install all dependencies and download Click source code. If not, see instructions <a href="get-started.html#Installation">here</a>.</p>
+        <h1 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h1><p>Here we provide two tutorials for online analysis at <a href="PAL-tutorial.html">PAL-XFEL</a> and <a href="LCLS-tutorial.html">LCLS</a>. We assume you have installed all dependencies and downloaded Click source codes. If not, see instructions <a href="get-started.html#Installation">here</a>.</p>
 <p>If you find any bugs, please do not hesitate to contact the author(Xuanxuan Li) via email(<a href="mailto:lxx2011011580@gmail.com" target="_blank" rel="noopener">lxx2011011580@gmail.com</a>).</p>
 
         <div id="react-support-footer-root"></div>
@@ -51,9 +51,24 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
 
     <!-- js source  -->
-    <script src="/Click/script/doc.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script src="/Click/script/doc.js"></script>
 
     
 
-  </body>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
 </html>
