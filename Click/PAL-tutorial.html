@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+
+    <title>Click-Doc | PAL Tutorial </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+
+    <!-- fonts -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:300,400,500,600,700" rel="stylesheet">
+
+    <!-- stylesheets -->
+    <link rel="stylesheet" href="/Click/style/doc.css">
+
+    <!-- favicon -->
+    <link rel="icon" href="/Click/images/favicon.ico"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  </head>
+  <body>
+
+   <!-- hexo-inject:begin --><!-- hexo-inject:end --><script>window.__INITIAL_STATE__ = {"page":{"title":"PAL Tutorial","path":"PAL-tutorial.html"},"data":{"navigation":{"logo":{"text":"Click","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"Modules","type":"link","path":"modules.html","children":[{"text":"Main Window","type":"link","path":"main-win.html"},{"text":"Batch Window","type":"link","path":"job-win.html"},{"text":"Calibration Window","type":"link","path":"powder-win.html"}]},{"text":"Algorithms","type":"label","children":[{"text":"Hit Finding","type":"link","path":"hit-finding-alg.html"},{"text":"Powder Fit","type":"link","path":"powder-fit-alg.html"}]},{"text":"Tutorial","type":"link","path":"tutorial.html","children":[{"text":"PAL-XFEL","type":"link","path":"PAL-tutorial.html"},{"text":"LCLS","type":"link","path":"LCLS-tutorial.html"}]}]}},"config":{"timezone":"CN","root":"/Click/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+
+    <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/Click/index.html" class="doc-navbar__logo"><img src="/Click/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Click</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
+    <div class="doc-content">
+  <div class="dc-page">
+    <div class="dc-card">
+      <div id="react-search-results-root"></div>
+      <div id="page-content" class="doc-formatting">
+        <h1 id="PAL-Tutorial"><a href="#PAL-Tutorial" class="headerlink" title="PAL Tutorial"></a>PAL Tutorial</h1><h2 id="Project-Setup"><a href="#Project-Setup" class="headerlink" title="Project Setup"></a>Project Setup</h2><p>Create a project,</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python /path/to/Click/gui.py startproject project_name -f PAL</span><br></pre></td></tr></table></figure>
+<p>Click will create a folder with the name of <em>project_name</em> and setup all configurations and subfolders. Look at what Click created:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">project_name</span><br><span class="line">├── conf</span><br><span class="line">│   ├── hit_finding  <span class="comment"># hit finding configuration files</span></span><br><span class="line">│   └── indexing  <span class="comment"># indexing configuration files, not implemented yet</span></span><br><span class="line">├── cxi_comp  <span class="comment"># compressed raw data</span></span><br><span class="line">├── cxi_hit  <span class="comment"># hits data</span></span><br><span class="line">├── indexing  <span class="comment"># perform indexing here</span></span><br><span class="line">├── mask  <span class="comment"># mask files</span></span><br><span class="line">├── mean  <span class="comment"># mean/sigma files</span></span><br><span class="line">├── powder  <span class="comment"># peak powder files</span></span><br><span class="line">└── raw_lst  <span class="comment"># list file used in batch job system</span></span><br></pre></td></tr></table></figure>
+<p>Start analysis with Click.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> project_name</span><br><span class="line">python /path/to/Click/gui.py</span><br></pre></td></tr></table></figure>
+<h2 id="Data-Visualization"><a href="#Data-Visualization" class="headerlink" title="Data Visualization"></a>Data Visualization</h2><p>To visualize and analyze data in the main window, users need add data files to the <a href="http://localhost:9999/Click/main-win.html#File-List" target="_blank" rel="noopener">File List</a>.</p>
+<p><img src="images/pal-tutorial/add-files.gif" alt="add files"></p>
+<p>After data files added into the File List, double click one data item. If it’s a single-dataset format, like npy, Click will load and display it directly. Otherwise it may prompt a dialog, then users can select a dataset for visualization. Users can also right click the data item and select <strong>select and load dataset</strong> in the popup menu.</p>
+<p><img src="images/pal-tutorial/data-vis.gif" alt="data visualization"></p>
+<h2 id="Mask-Preperation"><a href="#Mask-Preperation" class="headerlink" title="Mask Preperation"></a>Mask Preperation</h2><p>Usually mask is created from a mean/sigma image, which is generated from multiple frames of raw data(right click a data item and select <strong>calculate mean/sigma</strong>, the result file will be saved in <em>mean</em> folder in your project). Users can select a threshold to generate the initial mask, then refine it by morphology operations.</p>
+<p><strong>Tip</strong>: enable mask view by click <strong>View -&gt; Show Calib/Mask View</strong>, then you can visualize the raw image (left) and current mask(right) in the central image viewer.</p>
+<p><img src="images/pal-tutorial/mean-mask.gif" alt="mean mask"></p>
+<p>Besides, users can use <strong>mask eraser</strong> to make an arbitrary shape of mask(<strong>DO NOT</strong> use mask eraser and morphology operation at the same time, it will be too slow), this is very handy to make a beam stop mask.</p>
+<p><img src="images/pal-tutorial/beam-stop.gif" alt="mean mask"></p>
+<p>Finally, users can multiply multiple mask to generate a combined mask.</p>
+<p><img src="images/pal-tutorial/combined-mask.gif" alt="mask preperation"></p>
+<h2 id="Basic-Calibration"><a href="#Basic-Calibration" class="headerlink" title="Basic Calibration"></a>Basic Calibration</h2><p>Users can perform basic calibration (determine beam center) on a powder diffraction dataset in 2 steps:</p>
+<ol>
+<li>calculate mean/sigma of powder diffraction images</li>
+<li>adjust center and radii of rings to fit the powder rings of the sigma image</li>
+</ol>
+<p><img src="images/pal-tutorial/basic-calibration.gif" alt="basic calibration"></p>
+<p><strong>Tip</strong>: You can fit multiple rings using multiple radii parameters seperated with comma like <em>200,300,400</em></p>
+<h2 id="Hit-finding-parameters-tuning"><a href="#Hit-finding-parameters-tuning" class="headerlink" title="Hit finding parameters tuning"></a>Hit finding parameters tuning</h2><p>Hit finding parameters tuning is the core function of Click, it’s also the premise of peak powder generation. Users can try different hit finder (<a href="hit-finding-alg.html#SNR-Model">SNR model</a> and <a href="hit-finding-alg.html#Poisson-Model">Poisson model</a>) and adjust parameters in real time. Found peaks will be plotted in green circles in the central image viewer. A proper mask can be set to ignore invalid region. Once parameters tuning done, users can save the configuration file in <em>conf/hit_finding</em> folder.</p>
+<p><strong>Tip</strong>: open <strong>pixel inspector</strong> and <strong>peak table</strong> to check the peak finding results.</p>
+<p><img src="images/pal-tutorial/hit-finding.gif" alt="hit finding"></p>
+<h2 id="Peak-Powder-Generation"><a href="#Peak-Powder-Generation" class="headerlink" title="Peak Powder Generation"></a>Peak Powder Generation</h2><p>To generate peak powder images, just right click on the powder diffraction data, select <strong>generate peak powder</strong>, specify hit finding configuration file and other parameters in the popup dialog. Submit the powder job and wait until the job done.</p>
+<p><img src="images/pal-tutorial/powder.gif" alt="powder"></p>
+<h2 id="Fine-Calibration"><a href="#Fine-Calibration" class="headerlink" title="Fine Calibration"></a>Fine Calibration</h2><p>Once you have a peak powder file, geometry calibration is pretty simple. Click <strong>Window -&gt; Powder Fit</strong> to open the <strong>Powder Fit</strong> window and load a peak powder file. Set estimated beam center and other parameters, click <strong>Do Fitting</strong>, the fitting results are shown in the image viewer(bottom left) and statistical table(bottom right). Fitted beam center and tilting angles are shown in the middel.</p>
+<p>Users can optimize detector distance since we know the lattice parameters of powder sample. In this example, we use LaB6 sample, so the resolution of each powder ring can be calculated as below.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">ring order</th>
+<th style="text-align:center">hkl</th>
+<th>resolution/Å</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">001</td>
+<td>4.157</td>
+</tr>
+<tr>
+<td style="text-align:center">2</td>
+<td style="text-align:center">011</td>
+<td>2.939</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">111</td>
+<td>2.400</td>
+</tr>
+<tr>
+<td style="text-align:center">4</td>
+<td style="text-align:center">002</td>
+<td>2.078</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">012</td>
+<td>1.859</td>
+</tr>
+<tr>
+<td style="text-align:center">6</td>
+<td style="text-align:center">112</td>
+<td>1.697</td>
+</tr>
+</tbody>
+</table>
+<p>To optimize the detector distance, double click the resolution cell in statistical table and update to correct value.</p>
+<p><img src="images/pal-tutorial/powder-calibration.gif" alt="powder calibration"></p>
+<h2 id="Batch-Job-System"><a href="#Batch-Job-System" class="headerlink" title="Batch Job System"></a>Batch Job System</h2><p>Before you submit batch jobs, check the settings of Click. If you are working at PAL-XFEL, make sure the <strong>Facility</strong> is set to <strong>PAL</strong> and <strong>Job Engine</strong> is set to <strong>pal</strong> in the <strong>General</strong> tab of setting dialog. The raw data directory is the root folder of raw data, it’s usually in the <em>ue_xxxxxx_SFX</em> at PAL-XFEL.</p>
+<p><img src="images/pal-tutorial/settings-general.png" alt="settings-general"></p>
+<p>In batch settings, users can select configuration file of hit finding and minimal peak numbers for a hit. If all the settings are fine, click <strong>Window -&gt; Job Table</strong> to start batch job system.</p>
+<p>Right click any row in the job table, select <strong>run hit finder</strong> to perform hit finding job for this run. When the a hit finding job is done, users can <strong>save all to cxi</strong> for further analysis. Besides, users can click <strong>view hits</strong> to check hit finding results of this run.</p>
+<p><img src="images/pal-tutorial/batch-job.gif" alt="batch job"></p>
+
+        <div id="react-support-footer-root"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+
+    
+
+    <!-- js vendors -->
+    <script src="//code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
+
+    <!-- js source  -->
+    <script src="/Click/script/doc.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  </body>
+</html>

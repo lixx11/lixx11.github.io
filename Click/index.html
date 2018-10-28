@@ -24,7 +24,7 @@
   </head>
   <body>
 
-   <!-- hexo-inject:begin --><!-- hexo-inject:end --><script>window.__INITIAL_STATE__ = {"page":{"title":"Click","path":"index.html"},"data":{"navigation":{"logo":{"text":"Click","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"Modules","type":"link","path":"modules.html","children":[{"text":"Main Window","type":"link","path":"main-win.html"},{"text":"Job Window","type":"link","path":"job-win.html"},{"text":"Powder Fit Window","type":"link","path":"powder-win.html"}]},{"text":"Algorithms","type":"label","children":[{"text":"Hit Finding","type":"link","path":"hit-finding-alg.html"},{"text":"Powder Fit","type":"link","path":"powder-fit-alg.html"}]},{"text":"Tutorial","type":"link","path":"tutorial.html"}]}},"config":{"timezone":"CN","root":"/Click/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+   <!-- hexo-inject:begin --><!-- hexo-inject:end --><script>window.__INITIAL_STATE__ = {"page":{"title":"Click","path":"index.html"},"data":{"navigation":{"logo":{"text":"Click","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"Modules","type":"link","path":"modules.html","children":[{"text":"Main Window","type":"link","path":"main-win.html"},{"text":"Batch Window","type":"link","path":"job-win.html"},{"text":"Calibration Window","type":"link","path":"powder-win.html"}]},{"text":"Algorithms","type":"label","children":[{"text":"Hit Finding","type":"link","path":"hit-finding-alg.html"},{"text":"Powder Fit","type":"link","path":"powder-fit-alg.html"}]},{"text":"Tutorial","type":"link","path":"tutorial.html","children":[{"text":"PAL-XFEL","type":"link","path":"PAL-tutorial.html"},{"text":"LCLS","type":"link","path":"LCLS-tutorial.html"}]}]}},"config":{"timezone":"CN","root":"/Click/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
 
     <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/Click/index.html" class="doc-navbar__logo"><img src="/Click/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Click</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
     <div class="doc-content">
@@ -32,15 +32,29 @@
     <div class="dc-card">
       <div id="react-search-results-root"></div>
       <div id="page-content" class="doc-formatting">
-        <h1 id="Click"><a href="#Click" class="headerlink" title="Click"></a>Click</h1><p>Click is a <strong>Data Preprocessor</strong> for <strong>SFX</strong> (Serial Femtosecond Crystallograph) experiments. Users can perform online analysis or re-analyze results from other SFX preprocessor like Cheetah.</p>
-<p>Inspired by Cheetah and Psocake, Click provides good visualization support and convient batch job system. Besides, its features includes:</p>
+        <h1 id="Click"><a href="#Click" class="headerlink" title="Click"></a>Click</h1><p>Click is a <strong>Data Preprocessor</strong> for <strong>SX</strong> (Serial Crystallograph) experiments. Users can perform online analysis or re-analyze results from other SX preprocessor like Cheetah.</p>
+<p>Inspired by Cheetah and Psocake, Click provides good visualization support and convient batch job system. The major features include:</p>
 <ul>
-<li>pure Python implementation with good readability, portability, maintainability</li>
-<li>cross platform, no compiling, easy installation</li>
-<li>good performance (depends on parameter setup)</li>
-<li>balance between flexibility and automaticity</li>
-<li>calibration support for monolithic detector</li>
+<li>Cross platform, easy installation.</li>
+<li>Fast speed and high parallelization.</li>
+<li>Real-time parameter tuning and feedback.</li>
+<li>Highly automated data processing.</li>
+<li>Geometry calibration.</li>
+<li>Data visualization.</li>
 </ul>
+<p>Some screenshots are displayed below.</p>
+<ul>
+<li><strong>Main Window</strong>. Users can visualize experimental data in many formats(e.g. npy, npz, hdf5, cxi) and prepare supporting data like mask(for hit finding), peak powde(for geometry calibration). Last but most important function in the main window is that users can <strong>tune hit finding parameters</strong> on the displayed image in <strong>real time</strong>.</li>
+</ul>
+<p><img src="images/main-win.png" alt="Main Window"></p>
+<ul>
+<li><strong>Batch Window</strong>. A batch job system is implemented in Click, which is similar to <strong>Cheetah-GUI</strong>. Users can submit jobs in auto/manual mode, job progress and results will be updated every 5 seconds.</li>
+</ul>
+<p><img src="images/batch-win.png" alt="Batch Window"></p>
+<ul>
+<li><strong>Calibration Window</strong>. A geometry calibration module based on powder diffraction is integrated. Users can calibrate detector distance, beam center, detector tilting angles in a few seconds.</li>
+</ul>
+<p><img src="images/powder-win.png" alt="Powder Calibration Window"></p>
 
         <div id="react-support-footer-root"></div>
       </div>
@@ -58,24 +72,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
 
     <!-- js source  -->
-    <script src="/Click/script/doc.js"></script>
+    <script src="/Click/script/doc.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
     
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+  </body>
 </html>

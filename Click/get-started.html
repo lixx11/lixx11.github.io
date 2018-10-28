@@ -3,7 +3,7 @@
   <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
 
-    <title>Click-Doc |  </title>
+    <title>Click-Doc | Get Started </title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -24,7 +24,7 @@
   </head>
   <body>
 
-   <!-- hexo-inject:begin --><!-- hexo-inject:end --><script>window.__INITIAL_STATE__ = {"page":{"path":"get-started.html","title":""},"data":{"navigation":{"logo":{"text":"Click","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"Modules","type":"link","path":"modules.html","children":[{"text":"Main Window","type":"link","path":"main-win.html"},{"text":"Job Window","type":"link","path":"job-win.html"},{"text":"Powder Fit Window","type":"link","path":"powder-win.html"}]},{"text":"Algorithms","type":"label","children":[{"text":"Hit Finding","type":"link","path":"hit-finding-alg.html"},{"text":"Powder Fit","type":"link","path":"powder-fit-alg.html"}]},{"text":"Tutorial","type":"link","path":"tutorial.html"}]}},"config":{"timezone":"CN","root":"/Click/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
+   <!-- hexo-inject:begin --><!-- hexo-inject:end --><script>window.__INITIAL_STATE__ = {"page":{"title":"Get Started","path":"get-started.html"},"data":{"navigation":{"logo":{"text":"Click","type":"link","path":"index.html"},"main":[{"text":"Overview","type":"link","path":"index.html"},{"text":"Get Started","type":"link","path":"get-started.html"},{"text":"Modules","type":"link","path":"modules.html","children":[{"text":"Main Window","type":"link","path":"main-win.html"},{"text":"Batch Window","type":"link","path":"job-win.html"},{"text":"Calibration Window","type":"link","path":"powder-win.html"}]},{"text":"Algorithms","type":"label","children":[{"text":"Hit Finding","type":"link","path":"hit-finding-alg.html"},{"text":"Powder Fit","type":"link","path":"powder-fit-alg.html"}]},{"text":"Tutorial","type":"link","path":"tutorial.html","children":[{"text":"PAL-XFEL","type":"link","path":"PAL-tutorial.html"},{"text":"LCLS","type":"link","path":"LCLS-tutorial.html"}]}]}},"config":{"timezone":"CN","root":"/Click/","time_format":"HH:mm:ss","theme":"../node_modules/hexo-theme-doc","theme_config":{"swagger_ui":{"version":2,"permalinks":true,"api_explorer":true,"download":"Download specification","show_extensions":false,"deep_linking":true,"display_operation_id":false,"doc_expansion":"none"},"search":{"skip":false,"background":false,"route":"/lunr.json"},"favicon":"images/favicon.ico"}}}</script>
 
     <div id="react-navigation-root"><div class="doc-navigation" data-reactroot=""><nav class="doc-navbar"><a href="/Click/index.html" class="doc-navbar__logo"><img src="/Click/images/logo.png" class="doc-navbar__logo__img"/><span class="doc-navbar__logo__text">Click</span></a><i class="dc-icon dc-icon--close dc-icon--interactive doc-sidebar-close doc-navbar__sidebar-close doc-navbar__sidebar-close--desktop"></i><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-navbar__sidebar-toggle"></i></nav><nav class="doc-sidebar"><div class="doc-sidebar__vertical-menu"><i class="dc-icon dc-icon--menu dc-icon--interactive doc-sidebar-toggle doc-sidebar-toggle--primary doc-sidebar__vertical-menu__item"></i><i class="dc-icon dc-icon--search dc-icon--interactive doc-sidebar__vertical-menu__item doc-sidebar__vertical-menu__item--primary"></i></div><div class="doc-sidebar-content"><div class="doc-sidebar__search-form"></div><ul class="doc-sidebar-list"></ul></div></nav></div></div>
     <div class="doc-content">
@@ -32,7 +32,7 @@
     <div class="dc-card">
       <div id="react-search-results-root"></div>
       <div id="page-content" class="doc-formatting">
-        <h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><p>As a Python package, Click has the follwing dependencies:</p>
+        <h1 id="Get-Started"><a href="#Get-Started" class="headerlink" title="Get Started"></a>Get Started</h1><h2 id="Requirements"><a href="#Requirements" class="headerlink" title="Requirements"></a>Requirements</h2><p>As a Python program, Click has the follwing dependencies:</p>
 <ul>
 <li>numpy</li>
 <li>scipy</li>
@@ -46,8 +46,18 @@
 <li>pyqtgraph</li>
 </ul>
 <p>For unix-like system, users can install these python libraries with package manager like apt in ubuntu, port in mac, yum in centos. Alternatively,  <a href="https://www.anaconda.com/download/" target="_blank" rel="noopener">Anaconda</a> is highly recommended for Python-related library management.</p>
-<h2 id="Start-Click"><a href="#Start-Click" class="headerlink" title="Start Click"></a>Start Click</h2><p>Once all dependencies are installed, start Click by</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python /path/to/Click/gui.py</span><br></pre></td></tr></table></figure>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><h3 id="Anaconda"><a href="#Anaconda" class="headerlink" title="Anaconda"></a>Anaconda</h3><p>First download anaconda and Click:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://repo.anaconda.com/archive/Anaconda2-5.3.0-Linux-x86_64.sh</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/LiuLab-CSRC/Click.git</span><br></pre></td></tr></table></figure>
+<p><strong>Note</strong>: Users can install Python3 version of Anaconda if you are not working at LCLS.</p>
+<p>Install anaconda:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash /path/to/Anaconda-source.sh</span><br></pre></td></tr></table></figure>
+<p>The anaconda installation process is self-explanatory. Most of popular scientific libraries will be installed by default.</p>
+<p>Finally, install all dependencies:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda install mpi4py pyqtgraph docopt</span><br></pre></td></tr></table></figure>
+<h2 id="Start-Click"><a href="#Start-Click" class="headerlink" title="Start Click"></a>Start Click</h2><p>First we need create a project:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python /path/to/Click/gui.py startproject proj_name -f facility_name</span><br></pre></td></tr></table></figure>
+<p>Currently supported facilities including PAL-XFEL and LCLS. Besides, Click support offline analysis, the <em>facility_name</em> can be one of PAL/LCLS/local. If this command is executed successfully, a folder with <em>proj_name</em> will be created in current directory. Enter the project and start Click:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> proj_name</span><br><span class="line">python /path/to/Click/gui.py</span><br></pre></td></tr></table></figure>
 <p>If everything works, you will see a window like below:<br><img src="images/main-win.png" alt="main-window"></p>
 
         <div id="react-support-footer-root"></div>
@@ -66,24 +76,9 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/lunr.js/2.1.0/lunr.min.js"></script>
 
     <!-- js source  -->
-    <script src="/Click/script/doc.js"></script>
+    <script src="/Click/script/doc.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
     
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-</body>
+  </body>
 </html>
